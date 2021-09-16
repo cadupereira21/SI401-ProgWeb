@@ -1,0 +1,21 @@
+body
+{
+    background: url(./Assets/background.jpg) center;
+    width: 100%;
+}
+
+section.floating-menu
+{
+    background-color: rgb(245, 245, 245);
+    box-shadow: 0 0 1em rgb(100, 100, 100);
+    border-radius: 2%;
+}
+
+section#login
+{
+    position: absolute;
+    top: 15%;
+    left: 30%;
+    width: 40%;
+    height: 70%;
+}

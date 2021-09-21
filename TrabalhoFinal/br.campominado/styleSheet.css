@@ -27,12 +27,38 @@ body#game
 {
     height: 250vh;
 }
-
-.floating-menu-content
+body#account
 {
-    display: block;
+    height: 100vh;
+}
 
-    padding: 10px 0px
+section.floating-menu
+{
+    background-color: white;
+    box-shadow: 0 0 1em rgb(100, 100, 100);
+    border-radius: 2%;
+    position: absolute;
+    top: 15%;
+    opacity: 0.9;
+
+    align-items: center;
+    display:flex;
+    justify-content: center;
+}
+section#floating-menu-login
+{
+    width: 25%;
+    left: 37.5%;
+}
+section#floating-menu-signup
+{
+    width: 35%;
+    left: 32.5%;
+}
+section#floating-menu-account
+{
+    width: 40%;
+    left: 30%;
 }
 
 label
@@ -53,6 +79,7 @@ input.text-input
     border: none;
     outline: none;
 }
+
 input.submit-input
 {
     font-weight: 600;
@@ -73,21 +100,27 @@ input.submit-input
 {
     background-color: rgb(136, 32, 32);
 }
-
-section.floating-menu
+input#account-settings-change-password
 {
-    background-color: white;
-    box-shadow: 0 0 1em rgb(100, 100, 100);
-    border-radius: 2%;
-    position: absolute;
-    top: 15%;
-    left: 30%;
-    width: 40%;
-    opacity: 0.9;
-
-    align-items: center;
-    display:flex;
-    justify-content: center;
+    position: inherit;
+    width: 37%;
+}
+input#account-settings-save
+{
+    position: relative;
+    width: 15%;
+    margin-top: 5%;
+    margin-left: -1%;
+    margin-bottom: 5%;
+    background-color: rgba(20, 107, 20, 0.95);
+}
+input#account-settings-save:hover
+{
+    background-color: rgba(34, 138, 34, 0.95);
+}
+input#account-settings-save:active
+{
+    background-color: rgba(11, 77, 11, 0.95);
 }
 
 h1.floating-menu-title
@@ -109,6 +142,10 @@ hr.floating-menu-bar
     width: 100%;
     border-radius: 10px;
 }
+hr#account-settings-bar
+{
+    width: 75%;
+}
 
 a
 {
@@ -124,7 +161,7 @@ a:visited
 }
 a:hover 
 {
-text-decoration:underline;
+    text-decoration:underline;
 }
 a.button
 {
@@ -133,4 +170,58 @@ a.button
 a.button:hover
 {
     text-decoration: none;
+}
+
+.account-settings
+{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-block-start: 2%;
+}
+#account-settings-leftcontent
+{
+    margin-block-start: 5%;
+    width: 40%;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    float: left;
+}
+#account-settings-rightcontent
+{
+    width: 60%;
+    
+    float: left;
+}
+.floating-menu-content
+{
+    display: block;
+    padding: 2% 10%
+}
+div#floating-menu-content-login
+{
+    padding: 2% 10%
+}
+div#floating-menu-content-signup
+{
+    padding: 2% 10%
+}
+div#account-settings-text-input
+{
+    width: 108%;
+    padding: 2% 0px
+}
+.account-settings-image
+{
+    height: 45%;
+    width: 45%;
+    border-radius: 5px;
+}
+.account-settings-footstep
+{
+    float: none;
+    align-items: right;
+    align-content: right;
+    justify-content: right;
 }

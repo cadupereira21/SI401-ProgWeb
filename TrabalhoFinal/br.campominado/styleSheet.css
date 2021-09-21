@@ -1,21 +1,136 @@
 body
 {
-    background: url(./Assets/background.jpg) center;
+    display: flex;
+
     width: 100%;
+    background: linear-gradient(rgb(5, 5, 5), rgb(50, 50, 50));
+    font-size: 20px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+
+form
+{
+    width: 75%;
+    height: 50%;
+}
+
+body#login
+{
+    height: 100vh;
+}
+body#signup
+{
+    height: 200vh;
+}
+body#game
+{
+    height: 250vh;
+}
+
+.floating-menu-content
+{
+    display: block;
+
+    padding: 10px 0px
+}
+
+label
+{
+    font-size: 70%;
+}
+
+input
+{
+    border-radius: 5%;
+}
+
+input.text-input
+{
+    height: 30px;
+    width: 100%;
+    background-color: rgb(240, 240, 240);
+    border: none;
+    outline: none;
+}
+input.submit-input
+{
+    font-weight: 600;
+    position: absolute;
+    left: 35%;
+    color: white;
+    height: 40px;
+    width: 30%;
+    background-color: brown;
+    border-style: solid;
+    border-width: thin;
+}
+.submit-input:hover
+{
+    background-color: rgb(201, 63, 63);
+}
+.submit-input:active
+{
+    background-color: rgb(136, 32, 32);
 }
 
 section.floating-menu
 {
-    background-color: rgb(245, 245, 245);
+    background-color: white;
     box-shadow: 0 0 1em rgb(100, 100, 100);
     border-radius: 2%;
-}
-
-section#login
-{
     position: absolute;
     top: 15%;
     left: 30%;
     width: 40%;
-    height: 70%;
+    opacity: 0.9;
+
+    align-items: center;
+    display:flex;
+    justify-content: center;
+}
+
+h1.floating-menu-title
+{
+    text-align: center;
+    color: rgb(50, 50, 50);
+    padding-top: 2%;
+}
+
+p#signup
+{
+    text-align: center;
+    padding-bottom: 1%;
+    font-size: 60%;
+}
+
+hr.floating-menu-bar
+{
+    width: 100%;
+    border-radius: 10px;
+}
+
+a
+{
+    color: brown;
+}
+a:link
+{
+    text-decoration:none;
+}
+a:visited 
+{
+    text-decoration:none;
+}
+a:hover 
+{
+text-decoration:underline;
+}
+a.button
+{
+    color: black;
+}
+a.button:hover
+{
+    text-decoration: none;
 }

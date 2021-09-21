@@ -7,16 +7,38 @@
         <link rel="stylesheet" type="text/css" href="styleSheet.css">
     </head>
 
-    <body>
+    <body id="login">
         
+        <section class="floating-menu">
+            <form>
+                <h1 class="floating-menu-title"> LOGIN </h1>
 
-        <section class="floating-menu" id="login">
+                <hr class="floating-menu-bar"/>
 
-        <h1> ISTO É UMA SEÇÃO DE MENU FLUTUANTE </h1>
+                <div class="floating-menu-content">
+                    <label for="usuario">USUÁRIO</label>
+                <input type="text" class="text-input" id="usuario" autocomplete="off">
+                </div>
 
-        </section>
+                <div class="floating-menu-content">
+                    <label for="senha">SENHA</label>
+                    <input type="text" class="text-input" id="senha" autocomplete="off">    
+                </div>
 
+                <br/>
+                <div class="floating-menu-content">
+                    <input type="submit" class="submit-input" value="Entrar"> 
+                </div>
+                
+                <br /><br /><br />
     
+                <a href="signup.html">
+                    <p id="signup">
+                        Cadastre-se
+                    </p>
+                </a>
+            </form>
+        </section>
 
     </body>
 

@@ -221,7 +221,5 @@ div#account-settings-text-input
 .account-settings-footstep
 {
     float: none;
-    align-items: right;
-    align-content: right;
     justify-content: right;
 }

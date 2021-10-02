@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+    <head>
+        <title>Jogo da Velha</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="./sytleSheet.css" />
+        <script src="./script.js"></script>
+    </head>
+
+    <body>
+        <header>
+            <p id="header-text">
+                Bem vindo ao
+            </p>
+
+            <h1 id="header-title">
+                Jogo da Velha
+            </h1>
+        </header>
+
+        <nav >
+            <div id="nav-text-label">
+                <h2>
+                    COMO JOGAR?
+                </h2>
+                <br/>
+                <p>
+                    1. Clique em um dos quadrados para adicionar um elemento!
+                </p>
+                <p>
+                    2. O jogo é dividido por turnos, o primeiro é sempre do elemento círculo!
+                </p>
+                <p>
+                    3. Quando um jogador vencer, o tabuleiro será automaticamente resetado!
+                </p>
+                <p>
+                    4. Em caso de velha, o tabuleiro só será resetado quando todas as casas estiverem cheias!
+                </p>
+                <p>
+                    5. Caso note que o jogo terminará em velha, o botão 'Reiniciar' resetará o tabuleiro sem ninguém pontuar!
+                </p>
+                <p>
+                    OBS: O botão 'Jogar' te levará para a tela de jogo, porém NÃO é necessário para iniciá-lo!
+                </p>
+            </div>
+            <div id="nav-button">
+                <a id="nav-play-button" href="#section-game-content">
+                    Jogar
+                </a>
+            </div>
+        </nav>
+
+        <section>
+            <div id="game-score">
+                Placar
+            </div>
+            <div id="section-game-content">
+                <table id=game>
+
+                    <tr>
+                        <td class="table-top" id="top-left">
+                            <button class="table-button">.</button>   
+                        </td>
+                       <td class="table-top">
+                           <button class="table-button">.</button>
+                       </td>
+                       <td class="table-top" id="top-right">
+                        <button class="table-button">.</button>
+                       </td> 
+                    </tr>
+                    <tr>
+                        <td id="medium-left">
+                            <button class="table-button">.</button>
+                        </td>
+                        <td>
+                            <button class="table-button">.</button>
+                        </td>
+                        <td id="medium-right">
+                            <button class="table-button">.</button>
+                        </td> 
+                     </tr>
+                     <tr>
+                        <td class="table-bottom" id="bottom-left">
+                            <button class="table-button">.</button>
+                        </td>
+                        <td class="table-bottom">
+                            <button class="table-button">.</button>
+                        </td>
+                        <td class="table-bottom" id="bottom-right">
+                            <button class="table-button">.</button>
+                        </td> 
+                     </tr>
+                </table>
+            </div>
+
+            <div id="section-button">
+                <button id="section-footer-button">Reiniciar</button>
+            </div>
+        </section>
+
+        <footer>
+                Feito por Manko
+        </footer>
+    </body>
+</html>

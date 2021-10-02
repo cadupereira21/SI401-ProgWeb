@@ -1,0 +1,243 @@
+html
+{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    height: 2000px;
+}
+
+body
+{
+    padding: 0;
+    height: 100%;
+    background-color: rgb(40, 40, 40);
+    display: block;
+    align-content: center;
+}
+
+header
+{
+    text-align: center;
+
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color:goldenrod;
+
+    color: rgb(40, 40, 40);
+
+    width: 100%;
+    height: 5%;
+    
+
+    border-radius: 10px;
+}
+
+nav
+{
+    height: 24%;
+    
+    margin: 8% 5% 24%;
+
+    text-align: center;
+
+    color: goldenrod;
+
+    width: 90%;
+
+    border: medium solid goldenrod;
+    border-radius: 10px;
+}
+section
+{
+    height: 45%;
+    margin: 24% 5% 0;
+}
+footer
+{
+    height: fit-content;
+    font-size: 10px;
+
+    padding-bottom: 5px;
+    padding-top: 5px;
+
+    text-align: center;
+    background-color: rgb(175, 175, 175);
+    border-radius: 5px;
+    width: 100%;
+}
+
+div
+{
+    display: block;
+    align-content: center;
+}
+#nav-text-label
+{
+    padding: 0;
+    margin-left: 5%;
+    margin-top: 3%;
+    width: 90%;
+    height: 70%;
+    
+    color: goldenrod;
+}
+#nav-button
+{
+    padding: 0;
+    margin-left: 46%;
+    width: 8%;
+    height: 5%;
+}
+#game-score
+{
+    height: 10%;
+    margin-bottom: 6%;
+    background: goldenrod;
+    border-radius: 10px;
+}
+#section-game-content
+{
+    margin: auto;
+    width: 100%;
+}
+#section-button
+{
+    margin: 7% 45% 2%;
+    width: 10%;
+    padding: 0;
+}
+
+button#section-footer-button
+{
+    font-weight: bold;
+    color: rgb(40, 40, 40);
+
+    width: 100%;
+
+    padding: 10px;
+    padding-bottom: 7px;
+    background-color: goldenrod;
+    border: none;
+    border-bottom: thin solid rgb(175, 175, 175);
+}
+button#section-footer-button:hover
+{
+    background-color: rgb(243, 182, 28);
+}
+button#section-footer-button:active
+{
+    background-color: rgb(185, 141, 30);
+}
+button.table-button
+{
+    font-size: 12px;
+
+    padding: 0px 0px;
+
+    height: 100%;
+    width: 100%;
+    background: none;
+    color: rgb(40, 40, 40);
+    border: none;
+}
+button.table-button:hover
+{
+    background-color: rgba(255, 183, 0, 0.15);
+    background-image: url("./Assets/circulo.png");
+}
+button.table-button:active
+{
+    background-color: rgba(255, 183, 0, 0.35);
+}
+
+h1#header-title
+{
+    font-size: 50px;
+    font-weight: bolder;
+    margin: 0px;
+}
+h2
+{
+    font-size: 25px;
+    font-weight: bolder;
+    margin: 0;
+}
+
+p#header-text
+{
+    font-size: 20px;
+    margin: 0;
+    font-weight: bold;
+}
+
+table
+{
+    margin: auto;
+    padding: 0;
+}
+
+td
+{
+    height: 150px;
+    width: 150px;
+
+    align-content: center;
+
+    padding: 10px 10px;
+    border: medium solid goldenrod;
+}
+.table-top
+{
+    border-top: none;
+}
+#top-left
+{
+    border-left: none;
+
+}
+#top-right
+{
+    border-right: none;
+}
+#medium-left
+{
+    border-left: none;
+}
+#medium-right
+{
+    border-right: none;
+}
+.table-bottom
+{
+    border-bottom: none;
+}
+#bottom-left
+{
+    border-left: none;
+}
+#bottom-right
+{
+    border-right: none;
+}
+
+a#nav-play-button
+{
+    text-decoration: none;
+    font-size: smaller;
+    font-weight: bold;
+    
+    color: rgb(40, 40, 40);
+
+    width: 100%;
+
+    padding: 8% 30%;
+    background-color: goldenrod;
+    border-radius: 5%;
+    border: none;
+}
+a#nav-play-button:hover
+{
+    background-color: rgb(243, 182, 28);
+}
+a#nav-play-button:active
+{
+    background-color: rgb(185, 141, 30);
+}

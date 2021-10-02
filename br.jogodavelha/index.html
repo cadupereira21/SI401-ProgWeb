@@ -32,13 +32,7 @@
                     2. O jogo é dividido por turnos, o primeiro é sempre do elemento círculo!
                 </p>
                 <p>
-                    3. Quando um jogador vencer, o tabuleiro será automaticamente resetado!
-                </p>
-                <p>
-                    4. Em caso de velha, o tabuleiro só será resetado quando todas as casas estiverem cheias!
-                </p>
-                <p>
-                    5. Caso note que o jogo terminará em velha, o botão 'Reiniciar' resetará o tabuleiro sem ninguém pontuar!
+                    3. Quando o jogo acabar, o tabuleiro deverá ser resetado pelo botão 'Reiniciar'!
                 </p>
                 <p>
                     OBS: O botão 'Jogar' te levará para a tela de jogo, porém NÃO é necessário para iniciá-lo!
@@ -53,49 +47,50 @@
 
         <section>
             <div id="game-score">
-                Placar
+                <h1 id="winner">
+                    Ainda não há vencedor!
+                </h1>
             </div>
             <div id="section-game-content">
                 <table id=game>
-
                     <tr>
                         <td class="table-top" id="top-left">
-                            <button class="table-button">.</button>   
+                            <button class="table-button" type="button" onclick="jogada(0,0)" id="table-button-top-left">.</button>   
                         </td>
                        <td class="table-top">
-                           <button class="table-button">.</button>
+                           <button class="table-button" onclick="jogada(0,1)" id="table-button-top-middle">.</button>
                        </td>
                        <td class="table-top" id="top-right">
-                        <button class="table-button">.</button>
+                        <button class="table-button" onclick="jogada(0,2)" id="table-button-top-right">.</button>
                        </td> 
                     </tr>
                     <tr>
                         <td id="medium-left">
-                            <button class="table-button">.</button>
+                            <button class="table-button" onclick="jogada(1,0)" id="table-button-middle-left">.</button>
                         </td>
                         <td>
-                            <button class="table-button">.</button>
+                            <button class="table-button" onclick="jogada(1,1)" id="table-button-middle-middle">.</button>
                         </td>
                         <td id="medium-right">
-                            <button class="table-button">.</button>
+                            <button class="table-button" onclick="jogada(1,2)" id="table-button-middle-right">.</button>
                         </td> 
                      </tr>
                      <tr>
                         <td class="table-bottom" id="bottom-left">
-                            <button class="table-button">.</button>
+                            <button class="table-button" onclick="jogada(2,0)" id="table-button-bottom-left">.</button>
                         </td>
                         <td class="table-bottom">
-                            <button class="table-button">.</button>
+                            <button class="table-button" onclick="jogada(2,1)" id="table-button-bottom-middle">.</button>
                         </td>
                         <td class="table-bottom" id="bottom-right">
-                            <button class="table-button">.</button>
+                            <button class="table-button" onclick="jogada(2,2)" id="table-button-bottom-right">.</button>
                         </td> 
                      </tr>
                 </table>
             </div>
 
             <div id="section-button">
-                <button id="section-footer-button">Reiniciar</button>
+                <button id="section-footer-button" onclick="ReloadWindow()">Reiniciar</button>
             </div>
         </section>
 

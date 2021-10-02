@@ -130,18 +130,18 @@ button.table-button
 {
     font-size: 12px;
 
-    padding: 0px 0px;
+    padding: 0 0;
+    
+    background-color: rgb(40,40,40);
 
     height: 100%;
     width: 100%;
-    background: none;
     color: rgb(40, 40, 40);
     border: none;
 }
 button.table-button:hover
 {
     background-color: rgba(255, 183, 0, 0.15);
-    background-image: url("./Assets/circulo.png");
 }
 button.table-button:active
 {
@@ -152,8 +152,17 @@ h1#header-title
 {
     font-size: 50px;
     font-weight: bolder;
-    margin: 0px;
+    margin: 0
 }
+#winner
+{
+    text-align: center;
+    font-weight: bold;
+    padding: 33px;
+    margin: 0;
+    color: rgb(40,40,40);
+}
+
 h2
 {
     font-size: 25px;
@@ -166,6 +175,7 @@ p#header-text
     font-size: 20px;
     margin: 0;
     font-weight: bold;
+    color: rgb(40,40,40);
 }
 
 table

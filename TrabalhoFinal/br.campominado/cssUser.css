@@ -130,7 +130,7 @@ h1.floating-menu-title
     padding-top: 2%;
 }
 
-p#signup
+p#signuppage,p#loginpage
 {
     text-align: center;
     padding-bottom: 1%;
@@ -188,6 +188,9 @@ a.button:hover
     justify-content: center;
     float: left;
 }
+#account-settings-leftform {
+    display: contents;
+}
 #account-settings-rightcontent
 {
     width: 60%;
@@ -207,7 +210,7 @@ div#floating-menu-content-signup
 {
     padding: 2% 10%
 }
-div#account-settings-text-input
+div.account-settings-text-input
 {
     width: 108%;
     padding: 2% 0px

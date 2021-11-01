@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+	<head>
+		<title>Campo Minado</title>
+		<meta charset="UTF-8">
+		
+		<link rel="stylesheet" href="./cssGame.css">
+		<script src="gameLogic.js"></script>
+	</head>
+	
+	<body id="page-body">
+		<h1 class= "oculto" >Campo minado</h1>
+		<header id="cabecalho" >		
+			<h2 class= "oculto" >Menu de manipulação geral da página</h2>
+			<div id="menuUsuario">
+				<div id="btnUsuario">
+					<img id="avatar" src="./Assets/avatar.png" alt="Avatar pessoal com acesso ao menu do usuário"  width="30" height="30"/>
+					<span id="username">Username</span>				
+				</div>
+				<div id="OpcoesMenuUsuario">
+					<nav>
+						<h3 class= "oculto" >Links para páginas referentes ao usuário</h3>
+						<a href="account.html">Configuração da Conta</a>
+						<a href="historico.html">Histórico</a>
+						<a href="login.html">Disconnect</a>
+					</nav>
+				</div>
+			</div>
+			
+			<form name="dadosJogo" id="dadosJogo">
+				<div class="caixa">						
+					<label for="numBombas"><img id="imgBomba" src="./Assets/bomba.jpg" alt="Quantidade de bombas"/></label>
+					<input name="numBombas" type="number" placeholder="Qtd." min="1" id="numBombas">
+				</div>
+				
+				<div class="caixa">						
+					<label for="larguraTab"><img id="imgTamTab" src="./Assets/tamJogo.png" alt="tamanho do tabuleiro"/></label>
+					<input name="larguraTab" type="number" placeholder="Larg." min="2" max="50" id="larguraTab">
+					<label for="alturaTab"><span>X</span></label>						
+					<input name="alturaTab" type="number" placeholder="Alt." min="2" max="50" id="alturaTab">
+				</div>				
+
+				<input id="iniciarPartida" type="button" value="Iniciar Partida" onclick="CriarTabela()">
+				
+				<label class= "oculto" for="modoDeJogo">Modo: </label>
+				<select name="modoAtual" id="modoDeJogo">
+					<option selected disabled hidden>Modo de jogo</option>
+					<option value="Clássico">Clássico</option>
+					<option value="Rivotril">Rivotril</option>
+				</select>
+
+			</form>			
+			
+			<div id="leaderboard">
+				<a id="btnLeaderboard" href="leaderboard.html">Leaderboard</a>
+			</div>			
+		</header>	
+		<section>
+			<h2 class= "oculto" >Parte contendo a visualização do jogo</h2>
+					
+			<div id="tempoPartida">
+				<span>Tempo da partida:</span>
+				<span class="marcadorTempo"> XX:XX:XX</span>
+			</div>
+			
+			<div id="jogo">
+<!--				Só deverá ser exibido no modo rivotril-->
+<!--				<div id="tempoRestante">-->
+<!--					<span>Tempo restante:</span>-->
+<!--					<span class="marcadorTempo"> XX:XX:XX</span>-->
+<!--				</div>-->
+
+				<div id="campoMinado">
+					<table id="game-table">
+					</table>
+				</div>
+			</div>
+
+			<div id="trapaça">
+				<button id="btnTrapaça">Trapaça</button>
+			</div>		
+		</section>
+	</body>	
+</html>

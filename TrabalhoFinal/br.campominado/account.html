@@ -4,7 +4,7 @@
     <head>
         <title> Campo Minado Game - Conta </title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="styleSheet.css">
+        <link rel="stylesheet" type="text/css" href="./cssUser.css">
     </head>
 
     <body id="account">
@@ -21,25 +21,27 @@
                     <img src="./Assets/veldoraIcon.jpg" alt="account-photo" class="account-settings-image">
 
                     <br />
-                    <input type="submit" class="submit-input" id="account-settings-change-password" value="Mudar senha">
+					<form id="account-settings-leftform" action="changepassword.html">
+						<input type="submit" class="submit-input" id="account-settings-change-password" value="Mudar senha">
+					</form>
 
                 </div>
 
                 <div id="account-settings-rightcontent" class="account-settings">
 
-                    <form>
+                    <form id="account-settings-rightform" action="game.html">
 
-                        <div class="floating-menu-content" id="account-settings-text-input">
+                        <div class="floating-menu-content account-settings-text-input">
                             <label for="nome">NOME COMPLETO</label>
                         <input type="text" class="text-input" id="nome" autocomplete="off">
                         </div>
 
-                        <div class="floating-menu-content" id="account-settings-text-input">
+                        <div class="floating-menu-content account-settings-text-input">
                             <label for="telefone">TELEFONE</label>
                         <input type="text" class="text-input" id="telefone" autocomplete="off">
                         </div>
 
-                        <div class="floating-menu-content" id="account-settings-text-input">
+                        <div class="floating-menu-content account-settings-text-input">
                             <label for="email">EMAIL</label>
                         <input type="text" class="text-input" id="email" autocomplete="off">
                         </div>
@@ -51,7 +53,7 @@
                 <div class="account-settings-footstep">
 
                     <div class="account-settings-footsteps-content">
-                        <input type="submit" class="submit-input" id="account-settings-save" value="Salvar">
+                        <input type="submit" form="account-settings-rightform" class="submit-input" id="account-settings-save" value="Salvar">
                     </div>
 
                 </div>

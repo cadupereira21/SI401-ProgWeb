@@ -4,25 +4,25 @@
     <head>
         <title> Campo Minado Game - Login </title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="./cssUser.css">
+           <link rel="stylesheet" type="text/css" href="./StyleSheet/cssUser.css">
     </head>
 
     <body id="login">
         
         <section class="floating-menu" id="floating-menu-login">
-            <form name="login" action="game.html">
+            <form action="game.html">
                 <h1 class="floating-menu-title"> LOGIN </h1>
 
                 <hr class="floating-menu-bar"/>
 
                 <div class="floating-menu-content">
                     <label for="usuario">USUÁRIO</label>
-                <input type="text" class="text-input" id="usuario" autocomplete="off">
+				<input type="text" class="text-input" id="usuario" autocomplete="off" maxlength="16">
                 </div>
 
                 <div class="floating-menu-content">
                     <label for="senha">SENHA</label>
-                    <input type="password" class="text-input" id="senha" autocomplete="off">
+					<input type="password" class="text-input" id="senha" autocomplete="off" maxlength="16">
                 </div>
 
                 <br/>

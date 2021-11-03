@@ -1,0 +1,400 @@
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+section{
+  display: contents;
+}
+
+.oculto {
+  display: none;
+}
+
+/*-----------------------------------------------cores ao colocar o mouse sobre--------------------------------------------*/
+
+#btnUsuario:hover {
+  background-color: rgba(34, 138, 34, 0.95);
+  color: white;
+}
+
+#iniciarPartida:hover {
+  background-color: rgb(201, 63, 63);
+  color: white;
+}
+
+#desistirPartida:hover {
+  background-color: rgb(221, 151, 24);
+  color: white;
+}
+
+#btnLeaderboard:hover {
+  background-color: rgba(34, 138, 34, 0.95);
+  color: white;
+}
+
+#btnTrapaca:hover {
+  background-color: rgba(34, 138, 34, 0.95);
+  color: white;
+}
+
+#OpcoesMenuUsuario a:hover {
+  background-color: rgb(225 225 225);
+  color: black;
+}
+
+#modoDeJogo:hover {
+  background-color: rgba(34, 138, 34, 0.95);
+  color: white;
+}
+
+.celulaFechada:hover, .trapaca:hover {
+  background-color: rgb(255 150 150);
+  color: black;
+}
+
+#btnTrocaModoClique:hover, .clicavel:hover {
+  background-color: rgb(213, 213, 213);
+  color: black;
+}
+
+.bandeiraErrada:hover, .celulaSelecionadaErrada:hover{
+  background-color: rgb(244 193 99);
+  color: black;
+}
+
+/*-----------------------------------------------formatação das imagens----------------------------------------------------*/    
+
+#imgBomba, #imgTamTab {
+  height: 1.5em;
+  width: 1.5em;
+}
+
+#avatar {
+  border-radius: 5em;
+  padding: 0.5em;
+}
+
+#imagemModoClique {
+  height: 80%;
+  width: 80%;
+}
+
+/*---------------------------------------------------- grid da página ---------------------------------------------------- */
+
+body {
+  font-size: 20px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background: linear-gradient(rgb(5, 5, 5), rgb(50, 50, 50));
+  opacity: 0.9;
+  display: grid;
+  grid-template-columns: 1fr 6fr 1fr;
+  grid-template-rows: auto auto 1fr;
+  grid-template-areas:  "header       header     header"
+                        "restante     restante  restante"
+                        "tempoPartida  jogo     trapaca";
+  min-height: 100vh;
+  padding: 0.5em;
+  box-sizing: border-box;
+}
+
+/*------------------------------------------------------ cabecalho ------------------------------------------------------- */
+
+#cabecalho {
+  grid-area: header;
+  display: grid;
+  grid-template-columns: 1fr 7fr 1fr;
+  grid-gap: 1em;
+}
+
+#dadosJogo {
+  display: grid;
+  grid-template-columns: 1fr 2fr 5fr 2fr;
+  grid-gap: 0.5em;
+  padding: 0.5em;
+  background-color: white;
+  color: black;
+  border-radius: 0.5em;
+  box-shadow: 0 0 1em rgb(100 100 100);
+}
+
+/*---------------------------------------------------- Menu usuário -------------------------------------------------------*/
+
+#menuUsuario {
+  position: relative;
+  display: inline-block;
+  height: 100%;
+}
+
+#btnUsuario {
+  background-color: rgba(20, 107, 20, 0.95);
+  color: white;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  border-radius: 0.5em;
+}
+
+#OpcoesMenuUsuario {
+  display: none;
+  position: absolute;
+  right: 0;
+  left: 0;
+  background-color: #f9f9f9;
+  color: black;
+  box-shadow: 0px 0.5em 1em 0px rgb(0 0 0 / 80%);
+  z-index: 1;
+  border-radius: 0.5em;
+}
+
+#OpcoesMenuUsuario a {
+  color: black;
+  background-color: transparent;
+  padding: 1.5em 1em;
+  text-decoration: none;
+  display: block;
+  border-radius: 0.5em;
+}
+
+#menuUsuario:hover #OpcoesMenuUsuario {
+  display: block;
+}
+
+/*----------------------------------------------------dados para partida---------------------------------------------------*/
+
+.caixa {
+  display: flex;
+  border: solid 3px rgb(5 5 5);
+  border-radius: 0.5em;
+  align-items: center;
+  padding: 0.2em;
+}
+
+.caixa input {
+  font-size: 16px;
+  width: 3em;
+  height: 50%;
+  margin: 0.25em;
+  
+}
+
+/*------------------------------------------------ Iniciar e desistir da Partida ------------------------------------------ */
+
+#iniciarPartida {
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  background-color: brown;
+  border-style: solid;
+  border-width: thin;
+  border-image: initial;
+  border-radius: 0.5em;
+}
+
+#desistirPartida {
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  background-color: #cd8501;
+  border-style: solid;
+  border-width: thin;
+  border-image: initial;
+  border-radius: 0.5em;
+}
+
+/*---------------------------------------------------- modo de jogo -------------------------------------------------------*/
+
+#modoDeJogo {
+  height: 100%;
+  margin-left: 0.25em;
+  background-color: rgba(20, 107, 20, 0.95);
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 0.5em;
+}
+
+#modoDeJogo > option {
+  background-color: #f9f9f9;
+  color: black;
+}
+
+/*---------------------------------------------------- ranking ----------------------------------------------------------- */  
+
+#btnLeaderboard {
+  background-color: rgba(20, 107, 20, 0.95);
+  color: white;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: 0.5em;
+}
+
+/*----------------------------------------------------Marcadores de tempo------------------------------------------------- */
+
+#tempoRestante {
+  visibility: hidden;
+  grid-area: restante;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background: transparent;
+  margin: 0.5em 0;
+}
+
+#tempoPartida {
+  visibility: hidden;
+  grid-area: tempoPartida;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  color: white;
+  background: transparent;
+}
+
+.marcadorTempo {
+  background-color: white;
+  color: black;
+  border-radius: 0.5em;
+  box-sizing: border-box;
+  margin: 0.4em;
+  padding: 0.4em;
+}
+
+/*--------------------------------------------------------- Jogo --------------------------------------------------------- */
+
+#jogo {
+  grid-area: jogo;
+  padding: 2.5%;
+  background-color: white;
+  color: black;
+  border-radius: 1em;
+  box-shadow: 0 0 1em rgb(100 100 100);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+  justify-content: flex-start;
+}
+
+#dadosDaPartida {
+  height: 8%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  border: solid 3px rgb(5 5 5);
+  border-radius: 0.5em;
+}
+
+#btnTrocaModoClique {
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+  width: 4em;
+  height: 80%;
+  background-color: #b7b7b7;
+  border-style: solid;
+  border-width: thin;
+  border-image: initial;
+  border-radius: 0.5em;
+}
+
+#campoMinado{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 1.5em;
+}
+
+#campoMinado>div {
+  display: flex;
+  justify-content: center;
+}
+
+/*---------------------------------------------- Celulas, bombas e bandeiras --------------------------------------------- */
+
+.celula {
+  border: solid 2px rgb(5 5 5);
+  height: 2em;
+  width: 2em;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: small;
+  font-weight: bold;
+}
+
+.celulaFechada, .trapaca {
+  background-color: rgb(255 90 90);
+  color: black;
+}
+
+.celulaFechada span, .bomba span, .bandeira span{
+  display: none;
+}
+
+.celulaAberta {
+  background-color: #b7b7b7;
+  color: black;
+}
+
+.semNumeroDeBombasProximo {
+  visibility: hidden;
+}
+
+.bomba {
+  background-image: url(../Assets/bomba.png);
+  background-repeat: no-repeat;
+  background-size: 80% 80%;
+  background-position: center;
+}
+
+.bandeira {
+  background-image: url(../Assets/bandeira.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+}
+
+.celulaSelecionadaErrada, .bandeiraErrada {
+  background-color: orange;
+  color: black;
+}
+
+/*---------------------------------------------------- Trapaça ----------------------------------------------------------- */
+
+#trapaca{
+  grid-area: trapaca;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#btnTrapaca {
+  visibility: hidden;
+  padding: 1em;
+  font-size: 1em;
+  background-color: rgba(20, 107, 20, 0.95);
+  color: white;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.5em;
+}

@@ -1,85 +1,87 @@
 <!DOCTYPE html>
+<html lang="pt-BR" id="html">
+  <head>
+    <title>Campo Minado</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./StyleSheet/cssGame.css">
+    <script src="./JavaScript/JavaScriptGame.js"></script>
+    <script src="./JavaScript/cssGameControler.js"></script>
+  </head>
 
-<html lang="pt-BR">
-	<head>
-		<title>Campo Minado</title>
-		<meta charset="UTF-8">
-		
-		<link rel="stylesheet" href="./cssGame.css">
-		<script src="gameLogic.js"></script>
-	</head>
-	
-	<body id="page-body">
-		<h1 class= "oculto" >Campo minado</h1>
-		<header id="cabecalho" >		
-			<h2 class= "oculto" >Menu de manipulação geral da página</h2>
-			<div id="menuUsuario">
-				<div id="btnUsuario">
-					<img id="avatar" src="./Assets/avatar.png" alt="Avatar pessoal com acesso ao menu do usuário"  width="30" height="30"/>
-					<span id="username">Username</span>				
-				</div>
-				<div id="OpcoesMenuUsuario">
-					<nav>
-						<h3 class= "oculto" >Links para páginas referentes ao usuário</h3>
-						<a href="account.html">Configuração da Conta</a>
-						<a href="historico.html">Histórico</a>
-						<a href="login.html">Disconnect</a>
-					</nav>
-				</div>
-			</div>
-			
-			<form name="dadosJogo" id="dadosJogo">
-				<div class="caixa">						
-					<label for="numBombas"><img id="imgBomba" src="./Assets/bomba.jpg" alt="Quantidade de bombas"/></label>
-					<input name="numBombas" type="number" placeholder="Qtd." min="1" id="numBombas">
-				</div>
-				
-				<div class="caixa">						
-					<label for="larguraTab"><img id="imgTamTab" src="./Assets/tamJogo.png" alt="tamanho do tabuleiro"/></label>
-					<input name="larguraTab" type="number" placeholder="Larg." min="2" max="50" id="larguraTab">
-					<label for="alturaTab"><span>X</span></label>						
-					<input name="alturaTab" type="number" placeholder="Alt." min="2" max="50" id="alturaTab">
-				</div>				
+  <body id="page-body">
+    <h1 class="oculto">Campo minado</h1>
+    <header id="cabecalho">
+      <h2 class="oculto">Menu de manipulação geral da página</h2>
+      <div id="menuUsuario">
+        <div id="btnUsuario">
+          <img id="avatar" src="./Assets/avatar.png" alt="Avatar pessoal com acesso ao menu do usuário" width="30" height="30"/>
+          <span id="username">Username</span>
+        </div>
+        <div id="OpcoesMenuUsuario">
+          <nav>
+            <h3 class="oculto">Links para páginas referentes ao usuário</h3>
+            <a href="account.html">Configuração da Conta</a>
+            <a href="historico.html">Histórico</a>
+            <a href="login.html">Disconnect</a>
+          </nav>
+        </div>
+      </div>
+      
+      <form name="dadosJogo" id="dadosJogo">
+        <div class="caixa">
+          <label for="numBombas"><img id="imgBomba" src="./Assets/bomba.png" alt="Quantidade de bombas"/></label>
+          <input type="number" name="numBombas" id="numBombas" placeholder="Qtd." min="1" required>
+        </div>
 
-				<input id="iniciarPartida" type="button" value="Iniciar Partida" onclick="CriarTabela()">
-				
-				<label class= "oculto" for="modoDeJogo">Modo: </label>
-				<select name="modoAtual" id="modoDeJogo">
-					<option selected disabled hidden>Modo de jogo</option>
-					<option value="Clássico">Clássico</option>
-					<option value="Rivotril">Rivotril</option>
-				</select>
+        <div class="caixa">
+          <label for="larguraTab"><img id="imgTamTab" src="./Assets/tamJogo.png" alt="tamanho do tabuleiro"/></label>
+          <input type="number" name="larguraTab" id="larguraTab" placeholder="Larg." min="2" required>
+          <label for="alturaTab"><span>X</span></label>
+          <input type="number" name="alturaTab" id="alturaTab" placeholder="Alt." min="2" required>
+        </div>
 
-			</form>			
-			
-			<div id="leaderboard">
-				<a id="btnLeaderboard" href="leaderboard.html">Leaderboard</a>
-			</div>			
-		</header>	
-		<section>
-			<h2 class= "oculto" >Parte contendo a visualização do jogo</h2>
-					
-			<div id="tempoPartida">
-				<span>Tempo da partida:</span>
-				<span class="marcadorTempo"> XX:XX:XX</span>
-			</div>
-			
-			<div id="jogo">
-<!--				Só deverá ser exibido no modo rivotril-->
-<!--				<div id="tempoRestante">-->
-<!--					<span>Tempo restante:</span>-->
-<!--					<span class="marcadorTempo"> XX:XX:XX</span>-->
-<!--				</div>-->
+        <input id="iniciarPartida" type="button" value="Iniciar Partida" onclick="iniciarAPartida()">
 
-				<div id="campoMinado">
-					<table id="game-table">
-					</table>
-				</div>
-			</div>
+        <label class= "oculto" for="modoDeJogo">Modo: </label>
+        <select name="modoAtual" id="modoDeJogo" required>
+          <option selected disabled hidden value="">Modo de jogo</option>
+          <option value="Clássico">Clássico</option>
+          <option value="Rivotril">Rivotril</option>
+        </select>
+      </form>
 
-			<div id="trapaça">
-				<button id="btnTrapaça">Trapaça</button>
-			</div>		
-		</section>
-	</body>	
+      <div>
+        <a id="btnLeaderboard" href="leaderboard.html">Leaderboard</a>
+      </div>
+    </header>
+
+    <section>
+      <h2 class="oculto">Parte contendo a visualização do jogo</h2>
+      <div id="tempoRestante">
+        <span>Tempo restante:</span>
+        <span class="marcadorTempo"> XX:XX:XX</span>
+      </div>
+      <div id="tempoPartida">
+        <span>Tempo da partida:</span>
+        <span class="marcadorTempo"> 00:00:00</span>
+      </div>
+
+      <div id="jogo">
+        <div id="dadosDaPartida">
+          <span id="celulasAbertas">Células abertas: 0</span>
+          <span id="bombasArmadas">Bombas armadas: 0</span>
+          <span id="pontuacao">Pontuação: 0</span>
+          <button id="btnTrocaModoClique" onclick="trocarModoClique()">
+            <img id="imagemModoClique" src="./Assets/cursor.png" alt="Botão de Troca de modo"/>
+          </button>
+        </div>
+        <div id="campoMinado">
+        </div>
+      </div>
+
+      <div id="trapaca">
+        <button id="btnTrapaca" onclick="ativarTrapaca()">Trapaça</button>
+      </div>
+    </section>
+  </body>
 </html>

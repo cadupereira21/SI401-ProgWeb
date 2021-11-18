@@ -22,21 +22,30 @@ class StudentsFileManager
         }
     }
 
-//    static function ReadStudents(){
-//        $auxArray = array();
-//
-//        try{
-//            $openedFile = fopen(self::STUDENTS_FILE_TXT, 'r');
-//            while(feof($openedFile)){
-//                $auxString = explode(',', fgets($openedFile));
-//
-//                $name = $auxString[0];
-//                $ra = $auxString[1];
-//
-//            }
-//        } catch (Exception $e) {
-//            echo $e;
-//        }
-//    }
+    static function ReadStudents(){
+        $auxArray = array();
+
+        try{
+            $openedFile = fopen(self::STUDENTS_FILE_TXT, 'r');
+            while(feof($openedFile)){
+                $auxString = explode(',', fgets($openedFile));
+
+                //region Students Variables
+                $name = $auxString[0];
+                $ra = $auxString[1];
+                $sex = $auxString[2];
+                $age = $auxString[3];
+                $address = $auxString[4];
+                $phone= $auxString[5];
+                $email = $auxString[6];
+                //endregion
+
+                array_push($auxArray, new Student($name, $ra, $sex, $age, $address, $phone, $email));
+            }
+            return $auxArray;
+        } catch (Exception $e) {
+            echo $e;
+        }
+    }
 
 }

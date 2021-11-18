@@ -13,7 +13,7 @@ class StudentsDatabase
     {
         $this->fileManager = $fileManager;
 
-        //$this->studentsRegistered = $this->fileManager->ReadStudents();
+        $this->studentsRegistered = $this->fileManager->ReadStudents();
     }
 
     public function GetStudentsRegistered(): array

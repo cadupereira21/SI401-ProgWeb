@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro dos alunos de BSI - Unicamp</title>
+    <link rel="stylesheet" type="text/css" href="StyleSheet.css">
+</head>
+<body>
+
+    <div id="formulario">
+        <form id="formularioPrincipal" name="cadastro" action="./server/Register.php" method="post">
+            <div>
+                <label class="form-labels" for="name"> NOME </label>
+                <input type="text" id="name" name="name"/>
+            </div>
+
+            <div>
+                <label class="form-labels" for="ra"> RA </label>
+                <input type="text" id="ra" name="ra"/>
+            </div>
+
+            <label for="sex"> SEXO </label>
+            <select id="sex" name="sex">
+                <option value="masc">M</option>
+                <option value="fem">F</option>
+                <option value="fem">Outro</option>
+            </select>
+
+            <label for="age"> IDADE </label>
+            <select id="age" name="age">
+                <option value="15-">< 15</option>
+                <option value="15">15</option>
+                <option value="16"> 16</option>
+                <option value="17"> 17</option>
+                <option value="18"> 18</option>
+                <option value="19"> 19</option>
+                <option value="20"> 20</option>
+                <option value="21"> 21</option>
+                <option value="22"> 22</option>
+                <option value="23"> 23</option>
+                <option value="24"> 24</option>
+                <option value="25"> 25</option>
+                <option value="26"> 26</option>
+                <option value="27"> 27</option>
+                <option value="28"> 28</option>
+                <option value="29"> 29</option>
+                <option value="30"> 30</option>
+                <option value="31"> 31</option>
+                <option value="32"> 32</option>
+                <option value="33"> 33</option>
+                <option value="34"> 34</option>
+                <option value="35"> 35</option>
+                <option value="36"> 36</option>
+                <option value="37"> 37</option>
+                <option value="38"> 38</option>
+                <option value="39"> 39</option>
+                <option value="40"> 40</option>
+                <option value="40+">> 40</option>
+            </select>
+
+            <div>
+                <label class="form-labels" for="address"> ENDEREÇO </label>
+                <input type="text" id="address" name="address"/>
+            </div>
+
+            <div>
+                <label class="form-labels" for="phone"> TELEFONE </label>
+                <input type="text" id="phone" name="phone"/>
+            </div>
+
+            <div>
+                <label class="form-labels" for="email"> EMAIL </label>
+                <input type="text" id="email" name="email"/>
+            </div>
+
+            <input class="submit-button" type="submit" value="Cadastrar"/>
+        </form>
+
+    </div>
+
+    <div id="alunosCadastradosButton-div">
+        <form id="alunosCadastradosButton-content" action="">
+            <input class="submit-button" id="alunosCadastradosButton" type="submit" value="Alunos Cadastrados">
+        </form>
+    </div>
+
+</body>
+</html>

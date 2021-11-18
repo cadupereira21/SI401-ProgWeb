@@ -1,0 +1,62 @@
+html{
+    display: flex;
+
+    height: 1080px;
+    width: auto;
+    background-image: linear-gradient(to bottom, #101010, #414141);
+
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 24px;
+    color: whitesmoke;
+}
+
+body{
+    height: 100%;
+    width: 75%;
+    margin: 50px auto auto;
+    align-content: center;
+}
+
+div{
+    margin: auto;
+    width: 90%;
+    background-color: white;
+    padding: 50px 25px 25px;
+}
+
+table, td, tr{
+    border: solid medium cornflowerblue;
+    border-collapse: collapse;
+}
+
+table{
+    margin: auto;
+    width: 80%;
+    color: #171717;
+}
+
+td{
+    padding: 5px 5px;
+}
+
+.name-cell{
+    width: 11%;
+}
+.ra-cell{
+    width: 11%;
+}
+.sex-cell{
+    width: 7%;
+}
+.age-cell{
+    width: 7%;
+}
+.address-cell{
+    width: 22%;
+}
+.cellphone-cell{
+    width: 11%;
+}
+.email-cell{
+    width: 11%;
+}

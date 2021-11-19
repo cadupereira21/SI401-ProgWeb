@@ -3,11 +3,11 @@
 class StudentsFileManager
 {
 
-    private const STUDENTS_FILE_TXT = 'studentsFile.txt';
+    private const STUDENTS_FILE_TXT = './server/studentsFile.txt';
 
 
     static function WriteStudent(Student $s):int{
-        $aux = $s->GetName() .','. $s->GetRa() .','. $s->GetSex() .','. $s->GetAge() .','. $s->GetAddress() .','. $s->GetPhone() .','. $s->GetEmail();
+        $aux = $s->GetName() .','. $s->GetRa() .','. $s->GetSex() .','. $s->GetAge() .','. $s->GetAddress() .','. $s->GetPhone() .','. $s->GetEmail() .','. "\r\n";
 
         try{
             $openedFile = fopen(self::STUDENTS_FILE_TXT, 'a');
@@ -22,30 +22,21 @@ class StudentsFileManager
         }
     }
 
-    static function ReadStudents(){
-        $auxArray = array();
-
+    static function ReadStudents(): ?string
+    {
+        $auxString = "";
         try{
             $openedFile = fopen(self::STUDENTS_FILE_TXT, 'r');
-            while(feof($openedFile)){
-                $auxString = explode(',', fgets($openedFile));
-
-                //region Students Variables
-                $name = $auxString[0];
-                $ra = $auxString[1];
-                $sex = $auxString[2];
-                $age = $auxString[3];
-                $address = $auxString[4];
-                $phone= $auxString[5];
-                $email = $auxString[6];
-                //endregion
-
-                array_push($auxArray, new Student($name, $ra, $sex, $age, $address, $phone, $email));
+            while(!feof($openedFile)){
+                global $auxString;
+                $auxString = $auxString .fgets($openedFile);
             }
-            return $auxArray;
+            fclose($openedFile);
         } catch (Exception $e) {
             echo $e;
+            return null;
         }
+        return $auxString;
     }
 
 }

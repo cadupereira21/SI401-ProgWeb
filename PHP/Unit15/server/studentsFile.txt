@@ -1,0 +1,4 @@
+Carlos,168321,masc,19,Rua das Pombas,19996060222,carlos@unicamp.com,
+Luiz,156852,masc,21,Rua dos Passaros,19998556565,luzi@unicamp.br,
+Ana,145695,fem,20,Rua das Flores,19978562323,ana@unicamp.br,
+Vitoria,245356,fem,24,Avenida Paulista,15978569696,vitoria@gmail.com,

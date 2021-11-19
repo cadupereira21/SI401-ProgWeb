@@ -1,13 +1,8 @@
 <?php
 
-    require 'ValidateStudents.php';
-    require 'Student.php';
-    require 'Validate.php';
-    require 'StudentsDatabase.php';
-    require 'StudentsFileManager.php';
+    require './server/InitializeDatabase.php';
 
-    $file = new StudentsFileManager();
-    $db = new StudentsDatabase($file);
+    global $db;
 
     function CreateNewStudent(){
         try {
@@ -25,5 +20,7 @@
         return $db->RegisterStudent($s);
     }
 
+    RegisterStudent(CreateNewStudent());
 
+    require 'index.html';
 

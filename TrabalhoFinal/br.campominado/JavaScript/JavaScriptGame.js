@@ -1,17 +1,3 @@
-/*
-//verificar sistema de pontuação
-\-> bomba = 100; celula Aberta = 1; tempo restante = 1s -> 10
-
-//funções para o tempo de partida
-\-> por célula 3 segundos
-
-//fazer telas de vitória e de derrota (por enquanto está somente com os alertas)
-
-//fazer tela inicial do jogo
-
-*/
-
-
 "use strict";
 
 //Dados carregados ao iniciar a partida

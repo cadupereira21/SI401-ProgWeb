@@ -15,7 +15,7 @@ section{
 /*-----------------------------------------------cores ao colocar o mouse sobre--------------------------------------------*/
 
 #btnUsuario:hover {
-  background-color: rgba(34, 138, 34, 0.95);
+  background-color: rgb(201, 63, 63);
   color: white;
 }
 
@@ -30,7 +30,7 @@ section{
 }
 
 #btnLeaderboard:hover {
-  background-color: rgba(34, 138, 34, 0.95);
+  background-color: rgb(201, 63, 63);
   color: white;
 }
 

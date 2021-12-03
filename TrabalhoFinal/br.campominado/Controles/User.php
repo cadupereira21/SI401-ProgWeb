@@ -12,8 +12,9 @@ class User
     private string $password;
 
     //region Construtor, Getters e Setters
-    public function __construct(string $nome, string $apelido, string $cpf, string $dataNasc, string $telefone, string $email, string $senha)
+    public function __construct(int $id, string $nome, string $apelido, string $cpf, string $dataNasc, string $telefone, string $email, string $senha)
     {
+        $this->id = $id;
         $this->name = $nome;
         $this->username = $apelido;
         $this->cpf = $cpf;
@@ -92,6 +93,17 @@ class User
     }
     //endregion
 
+    /**
+     * @throws ErrorException
+     */
+    public static function BuildUser(array $elem): User{
+        if(count($elem) != 8){
+            throw new ErrorException("Parâmetro passado não possui 8 elementos para serem usados!");
+        }
+
+        return new User($elem['userId'], $elem['name'], $elem['username'], $elem['cpf'], $elem['birthday'], $elem['phone'], $elem['email'], $elem['password']);
+    }
+
 }
 
 /*
@@ -99,3 +111,4 @@ class User
  *
  *  https://www.php.net/manual/pt_BR/function.date.php
  * */
+ ?>

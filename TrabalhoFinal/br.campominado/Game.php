@@ -1,97 +1,80 @@
 <?php
 
-class Game
-{
-    private int $id;
-    private int $userId;
-    private string $date;
-    private string $gameMode;
-    private array $grid;
-    private int $numBombs;
-    private int $time;
-    private bool $isAWin;
 
-    public function __construct(int $id, int $userId, string $date, string $gameMode, array $grid, int $numBombs, int $time, bool $isAWin)
-    {
-        $this->id = $id;
-        $this->userId = $userId;
-        $this->date = $date;
-        $this->gameMode = $gameMode;
-        $this->grid = $grid;
-        $this->numBombs = $numBombs;
-        $this->time = $time;
-        $this->isAWin = $isAWin;
-    }
-
-    public function getId(): int
-    {
-        return $this->id;
-    }
-
-    public function getUserId(): int
-    {
-        return $this->userId;
-    }
-    public function setUserId(int $userId): void
-    {
-        $this->userId = $userId;
-    }
-
-    public function getDate(): string
-    {
-        return $this->date;
-    }
-    public function setDate(string $date): void
-    {
-        $this->date = $date;
-    }
-
-    public function getGameMode(): string
-    {
-        return $this->gameMode;
-    }
-    public function setGameMode(string $gameMode): void
-    {
-        $this->gameMode = $gameMode;
-    }
-
-    public function getGrid(): array
-    {
-        return $this->grid;
-    }
-    public function setGrid(array $grid): void
-    {
-        $this->grid = $grid;
-    }
-
-    public function getNumBombs(): int
-    {
-        return $this->numBombs;
-    }
-    public function setNumBombs(int $numBombs): void
-    {
-        $this->numBombs = $numBombs;
-    }
-
-    public function getTime(): int
-    {
-        return $this->time;
-    }
-    public function setTime(int $time): void
-    {
-        $this->time = $time;
-    }
-
-    public function isAWin(): bool
-    {
-        return $this->isAWin;
-    }
-    public function setIsAWin(bool $isAWin): void
-    {
-        $this->isAWin = $isAWin;
-    }
+?>
 
 
+<!DOCTYPE html>
+<html lang="pt-BR" id="html">
+  <head>
+    <title>Campo Minado</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./StyleSheet/cssGame.css">
+    <link rel="stylesheet" href="./StyleSheet/cssMenuUsuario.css">
+    <script src="./JavaScript/JavaScriptGame.js"></script>
+  </head>
 
+  <body id="page-body">
+    <h1 class="oculto">Campo minado</h1>
+    <header id="cabecalho">
+      
+      <?php require "./MenuUsuario.php"?>
+      
+      <form name="dadosJogo" id="dadosJogo">
+        <div class="caixa">
+          <label for="numBombas"><img id="imgBomba" src="./Assets/bomba.png" alt="Quantidade de bombas"/></label>
+          <input type="number" name="numBombas" id="numBombas" placeholder="Qtd." min="1" required>
+        </div>
 
-}
+        <div class="caixa">
+          <label for="larguraTab"><img id="imgTamTab" src="./Assets/tamJogo.png" alt="tamanho do tabuleiro"/></label>
+          <input type="number" name="larguraTab" id="larguraTab" placeholder="Larg." min="2" required>
+          <label for="alturaTab"><span>X</span></label>
+          <input type="number" name="alturaTab" id="alturaTab" placeholder="Alt." min="2" required>
+        </div>
+
+        <label class= "oculto" for="modoDeJogo">Modo: </label>
+        <select name="modoAtual" id="modoDeJogo" required>
+          <option selected disabled hidden value="">Modo de jogo</option>
+          <option value="Clássico">Clássico</option>
+          <option value="Rivotril">Rivotril</option>
+        </select>
+
+        <input id="iniciarPartida" type="button" value="Iniciar Partida" onclick="iniciarAPartida()">
+      </form>
+
+      <div>
+        <a id="btnLeaderboard" href="./leaderboard.php">Leaderboard</a>
+      </div>
+    </header>
+
+    <section>
+      <h2 class="oculto">Parte contendo a visualização do jogo</h2>
+      <div id="tempoRestante">
+        <span>Tempo restante:</span>
+        <span class="marcadorTempo"> XX:XX:XX</span>
+      </div>
+      <div id="tempoPartida">
+        <span>Tempo da partida:</span>
+        <span class="marcadorTempo"> 00:00:00</span>
+      </div>
+
+      <div id="jogo">
+        <div id="dadosDaPartida">
+          <span id="celulasAbertas">Células abertas: 0</span>
+          <span id="bombasArmadas">Bombas armadas: 0</span>
+          <span id="pontuacao">Pontuação: 0</span>
+          <button id="btnTrocaModoClique" onclick="trocarModoClique()">
+            <img id="imagemModoClique" src="./Assets/cursor.png" alt="Botão de Troca de modo"/>
+          </button>
+        </div>
+        <div id="campoMinado">
+        </div>
+      </div>
+
+      <div id="trapaca">
+        <button id="btnTrapaca" onclick="ativarTrapaca()">Trapaça</button>
+      </div>
+    </section>
+  </body>
+</html>

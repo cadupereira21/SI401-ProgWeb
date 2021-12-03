@@ -14,11 +14,6 @@ section{
 
 /*-----------------------------------------------cores ao colocar o mouse sobre--------------------------------------------*/
 
-#btnUsuario:hover {
-  background-color: rgb(201, 63, 63);
-  color: white;
-}
-
 #iniciarPartida:hover {
   background-color: rgb(201, 63, 63);
   color: white;
@@ -37,11 +32,6 @@ section{
 #btnTrapaca:hover {
   background-color: rgba(34, 138, 34, 0.95);
   color: white;
-}
-
-#OpcoesMenuUsuario a:hover {
-  background-color: rgb(225 225 225);
-  color: black;
 }
 
 #modoDeJogo:hover {
@@ -69,11 +59,6 @@ section{
 #imgBomba, #imgTamTab {
   height: 1.5em;
   width: 1.5em;
-}
-
-#avatar {
-  border-radius: 5em;
-  padding: 0.5em;
 }
 
 #imagemModoClique {
@@ -120,53 +105,6 @@ body {
   box-shadow: 0 0 1em rgb(100 100 100);
 }
 
-/*---------------------------------------------------- Menu usuário -------------------------------------------------------*/
-
-#menuUsuario {
-  position: relative;
-  display: inline-block;
-  height: 100%;
-}
-
-#btnUsuario {
-  background-color: brown;
-  opacity: 95%;
-  color: white;
-  cursor: pointer;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  border-top-left-radius: 0.5em;
-  border-bottom-left-radius: 0.5em;
-}
-
-#OpcoesMenuUsuario {
-  display: none;
-  position: absolute;
-  right: 0;
-  left: 0;
-  background-color: #f9f9f9;
-  color: black;
-  box-shadow: 0px 0.5em 1em 0px rgb(0 0 0);
-  z-index: 1;
-  border-bottom-left-radius: 0.5em;
-  border-bottom-right-radius: 0.5em;
-  border-top-left-radius: .5em;
-}
-
-#OpcoesMenuUsuario a {
-  color: black;
-  background-color: transparent;
-  padding: 1.5em 1em;
-  text-decoration: none;
-  display: block;
-  border-radius: 0.5em;
-}
-
-#menuUsuario:hover #OpcoesMenuUsuario {
-  display: block;
-}
 
 /*----------------------------------------------------dados para partida---------------------------------------------------*/
 

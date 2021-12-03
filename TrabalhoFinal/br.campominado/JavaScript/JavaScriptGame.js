@@ -20,6 +20,50 @@ var tempoDePartidaId;
 var tempoRestanteId;
 var tempoRestante;
 
+var dataInicio;
+var tempoDePartida;
+
+//----------------------------------------------- Gravar dados da partida ------------------------------------------------------
+
+function RegistrarPartida(resultado){
+	
+	let dados = JSON.stringify({
+		IdUsuario: 1, //exemplo teste ----------------------------------------------------------------------------------------------------------------
+		numBombas: qtdBombas,
+		tabuleiro: (qtdColunas + "x" + qtdLinhas),
+		modo: modoDeJogo,
+		dataInicio: dataInicio,
+		resultado: resultado,		
+		duracao: tempoDeSegundosParaString(tempoDePartida)	
+	});
+	let request = new XMLHttpRequest();
+	if (!request) {
+		alert("Não foi possível criar um objeto XMLHttpRequest para salvar a partida.");
+		return;
+	}	
+	
+	request.onreadystatechange = mostrarResultadoRequisicao;
+	request.open("POST", "./Controles/salvarPartida.php", true);
+	request.setRequestHeader("Content-type", "application/json");//--------------------------------------------------------------------------------
+	request.send(dados);	
+	
+	function mostrarResultadoRequisicao() {
+		try {
+			if (request.readyState === XMLHttpRequest.DONE) {
+				if (request.status === 200) {
+					alert(request.responseText);
+				}
+				else {
+					alert("Ocorreu um erro("+request.status+")e sua partida não pode ser salva!");
+				}
+			}
+		}
+		catch (e) {
+			alert("Ocorreu uma exceção: " + e.description);
+		}
+	}
+}
+
 
 //----------------------------------------------- Funções para carregar partida ------------------------------------------------
 
@@ -60,7 +104,7 @@ function iniciarAPartida(){
     configurarDadosVisiveisDaPartida(qtdBombas);
 
     //resetando para o calculo correto da pontuação caso seja o modo clássico
-    tempoRestante = 0;    
+    tempoRestante = 0; 
     
     gerarTabuleiro(qtdLinhas, qtdColunas);    
     posicionarBombas(qtdBombas);    
@@ -188,38 +232,41 @@ function desistirDaPartida(){
     //resetar dados da pagina
     configurarDadosVisiveisDaPartida();
     
-    finalizarPartida();
+    finalizarPartida("derrota");
     ocultarContadoresDoTempo();
 }
 
 //----------------------------------------------- Função finalizar partida ------------------------------------------------
 
-function finalizarPartida(){
+function finalizarPartida(resultado){
     //pausa os calculos dos tempos
-    pausarContagens();
-    
+    pausarContagens();    
     partidaRodando = false;
+	calcularPontuacaoFinal(resultado, qtdBombas,tempoRestante);
+	//só salva se tiver iniciado as jogadas da partida
+	if(contagemTempoIniciada)
+		RegistrarPartida(resultado);
+	
     destravarFormularioAposPartida();
     mudarVisibilidadeBotaoTrapaca();
 }
 
 function sinalizarDerrota(){
-    finalizarPartida();
+    finalizarPartida("derrota");
     exibirBombasFechadas();
     //atualiza o resultado final da partida com a quantidade real de bombas que deveriam ser desarmadas
+    
     document.getElementById("bombasArmadas").innerHTML = "Bombas armadas: " + bombasArmadas;
     
-    calcularPontuacaoFinal("derrota", qtdBombas,tempoRestante);
     alert("Derrota.\nPara continuar jogando, clique para iniciar uma nova partida.");
 }
 
 function sinalizarVitoria(){
-    finalizarPartida();
+    finalizarPartida("vitoria");
     exibirTabuleiroDaVitoria();
     //Atualiza a marcação de bombas desarmadas
     document.getElementById("bombasArmadas").innerHTML = "Bombas armadas: 0";
     
-    calcularPontuacaoFinal("vitoria", qtdBombas,tempoRestante);
     alert("Parabéns, você ganhou.\nPara continuar jogando, clique para iniciar uma nova partida.");
 }
 
@@ -537,7 +584,8 @@ function ocultarContadoresDoTempo(){
 }
 
 function iniciarContagemTempoPartida(){
-    let tempoDePartida = 0;
+	dataInicio = new Date().toISOString().substring(0, 10);
+    tempoDePartida = 0;
     tempoDePartidaId = setInterval(function(){
         tempoDePartida++;
         atualizarCronometroDocumento("tempoPartida", tempoDePartida);    
@@ -559,7 +607,7 @@ function iniciarContagemTempoRestante(linhas, colunas){
 function pausarContagens() {
     clearInterval(tempoRestanteId);
     clearInterval(tempoDePartidaId);
-    //remove as marcaçõesao pausar a contagem do tempo caso esteja contando o tempo de trapaça
+    //remove as marcações ao pausar a contagem do tempo caso esteja contando o tempo de trapaça
     clearInterval(tempoTrapacaId);
     finalizarTrapaca();
 }

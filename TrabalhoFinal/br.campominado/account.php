@@ -1,5 +1,33 @@
 <?php
 
+session_start();
+
+$logado = false;
+
+if(isset($_SESSION["usuarioLogado"]) && $_SESSION["usuarioLogado"] === true)
+    $logado = true;
+
+if (!$logado){
+    header("Location: login.php");
+    die;
+
+}
+
+$nomeUsuario = $_SESSION['usuarioNome'];
+$idUsuario = $_SESSION['usuarioId'];
+$resultadoAlteracao =  null;
+if (!empty($_POST)){
+if (!isset($_POST["nome"]))
+    return;
+
+if (!isset($_POST["telefone"]))
+    return;
+
+if (!isset($_POST["email"]))
+    return;
+require_once("./util/atualizarConta.php");
+$resultadoAlteracao = processarAlteracao($idUsuario, $_POST["nome"], $_POST["telefone"], $_POST["email"]);
+}
 
 ?>
 
@@ -34,34 +62,43 @@
 
                 <div id="account-settings-rightcontent" class="account-settings">
 
-                    <form name="account" id="account-settings-rightform" action="./game.php">
+                    <?php if ($resultadoAlteracao != null){
+                        echo($resultadoAlteracao."<br>");
+                    } else{?>
+
+                    <form name="account" id="account-settings-rightform" method = "post" action="./account.php">
 
                         <div class="floating-menu-content account-settings-text-input">
                             <label for="nome">NOME COMPLETO</label>
-						<input type="text" class="text-input" id="nome" autocomplete="off" maxlength="40" required pattern="([a-zA-Z]+)( +[a-zA-Z]+)+" title="Deve ser inserido o nome completo">
+						<input type="text" class="text-input" name="nome" id="nome" autocomplete="off" maxlength="40" required pattern="([a-zA-Z]+)( +[a-zA-Z]+)+" title="Deve ser inserido o nome completo">
                         </div>
 
                         <div class="floating-menu-content account-settings-text-input">
                             <label for="telefone">TELEFONE</label>
-							<input type="tel" class="text-input" id="telefone" autocomplete="off" maxlength="15" required pattern="(\([0-9]{2}\))\s([9]{1})?([0-9]{4})-([0-9]{4})" placeholder="(99) 99999-9999" title="O telefone deve seguir o padrão (99) 99999-9999 ou (99) 9999-9999">
+							<input type="tel" class="text-input" name="telefone" id="telefone" autocomplete="off" maxlength="15" required pattern="(\([0-9]{2}\))\s([9]{1})?([0-9]{4})-([0-9]{4})" placeholder="(99) 99999-9999" title="O telefone deve seguir o padrão (99) 99999-9999 ou (99) 9999-9999">
                         </div>
 
                         <div class="floating-menu-content account-settings-text-input">
                             <label for="email">EMAIL</label>
-                        <input type="email" class="text-input" id="email" autocomplete="off" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="email@example.com" title="O formato do email deve seguir o padrão email@example.com">
+                        <input type="email" class="text-input" name="email" id="email" autocomplete="off" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="email@example.com" title="O formato do email deve seguir o padrão email@example.com">
 						</div>
 
                     </form>
+					<div class="account-settings-footsteps-content">
+						<input type="submit" form="account-settings-rightform" class="submit-input" id="account-settings-save" value="Salvar">
+					</div>
+                <?php } ?>
 
                 </div>
-
+                <?php if ($resultadoAlteracao == null){?>
                 <div class="account-settings-footstep">
-
-                    <div class="account-settings-footsteps-content">
-                        <input type="submit" form="account-settings-rightform" class="submit-input" id="account-settings-save" value="Salvar">
-                    </div>
-
+					<a href="./game.php">
+						<p id="voltar">
+							Voltar
+						</p>
+					</a>
                 </div>
+                <?php } ?>
              </div>
         </section>
 

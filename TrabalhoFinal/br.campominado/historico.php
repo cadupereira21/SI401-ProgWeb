@@ -1,5 +1,20 @@
 <?php
+ session_start();
 
+$logado = false;
+
+
+if(isset($_SESSION["usuarioLogado"]) && $_SESSION["usuarioLogado"] === true)
+            $logado = true;
+
+if (!$logado){
+        header("Location: login.php");
+        die;
+
+}
+
+$nomeUsuario = $_SESSION['usuarioNome'];
+require_once("./util/obterHistorico.php");
 ?>
 
 <!DOCTYPE html>
@@ -17,8 +32,8 @@
 		<h1>Campo minado Histórico</h1>
 		<header class="cabecalho" >		
 			
-			<?php require "./MenuUsuario.php"?>
-			
+		       <?php include "./util/menuUsuario.php"?>
+
 			<div class="historicoTexto">
 				<img src='./Assets/hist.png' alt='' class='histIcon'> Histórico de partidas
 			</div>			
@@ -32,6 +47,7 @@
 			
 			<div id="tabelaHist">
 				<table id ="tabela">
+
 					<tr class='linhaInfos'>
 						<td><img src='./Assets/datahora.png' alt='' class='icone'> Data e hora</td>
 						<td><img src='./Assets/modo.png' alt='' class='icone'> Modo de jogo</td>
@@ -40,62 +56,7 @@
 						<td><img src='./Assets/tempo.png' alt='' class='icone'> Tempo</td>
 						<td><img src='./Assets/resultado.png' alt='' class='icone'> Resultado</td>
 					</tr>
-					<tr class='linhaValores'>
-						<td>01/01/2021</td>
-						<td>Normal</td>
-						<td>10x10</td>
-						<td>10</td>
-						<td>2:00</td>
-						<td>Derrota</td>
-					</tr>
-					<tr class='linhaValores'>
-						<td>01/01/2021</td>
-						<td>Normal</td>
-						<td>10x10</td>
-						<td>10</td>
-						<td>2:00</td>
-						<td>Derrota</td>
-					</tr>
-					<tr class='linhaValores'>
-						<td>01/01/2021</td>
-						<td>Normal</td>
-						<td>10x10</td>
-						<td>10</td>
-						<td>2:00</td>
-						<td>Derrota</td>
-					</tr>
-					<tr class='linhaValores'>
-						<td>01/01/2021</td>
-						<td>Normal</td>
-						<td>10x10</td>
-						<td>10</td>
-						<td>2:00</td>
-						<td>Derrota</td>
-					</tr>
-					<tr class='linhaValores'>
-						<td>01/01/2021</td>
-						<td>Normal</td>
-						<td>10x10</td>
-						<td>10</td>
-						<td>2:00</td>
-						<td>Derrota</td>
-					</tr>
-					<tr class='linhaValores'>
-						<td>01/01/2021</td>
-						<td>Normal</td>
-						<td>10x10</td>
-						<td>10</td>
-						<td>2:00</td>
-						<td>Derrota</td>
-					</tr>
-					<tr class='linhaValores'>
-						<td>01/01/2021</td>
-						<td>Normal</td>
-						<td>10x10</td>
-						<td>10</td>
-						<td>2:00</td>
-						<td>Derrota</td>
-					</tr>
+					<?php echo(getHistorico()); ?>
 
 
 				</table>

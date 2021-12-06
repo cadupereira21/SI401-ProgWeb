@@ -1,5 +1,21 @@
 <?php
 
+session_start();
+
+$logado = false;
+
+
+if(isset($_SESSION["usuarioLogado"]) && $_SESSION["usuarioLogado"] === true)
+      $logado = true;
+
+if (!$logado){
+    header("Location: login.php");
+    die;
+
+}
+
+$nomeUsuario = $_SESSION['usuarioNome'];
+
 
 ?>
 
@@ -17,9 +33,10 @@
   <body id="page-body">
     <h1 class="oculto">Campo minado</h1>
     <header id="cabecalho">
-      
-      <?php require "./MenuUsuario.php"?>
-      
+
+     <h2 class="oculto">Menu de manipulação geral da página</h2>
+    <?php include "./util/menuUsuario.php"?>
+
       <form name="dadosJogo" id="dadosJogo">
         <div class="caixa">
           <label for="numBombas"><img id="imgBomba" src="./Assets/bomba.png" alt="Quantidade de bombas"/></label>

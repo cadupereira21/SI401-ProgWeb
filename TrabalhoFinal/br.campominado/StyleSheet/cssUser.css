@@ -100,6 +100,10 @@ input.submit-input
 {
     background-color: rgb(136, 32, 32);
 }
+.account-settings-footsteps-content {
+    text-align: end;
+    width: inherit;
+}
 input#account-settings-change-password
 {
     position: inherit;
@@ -108,10 +112,7 @@ input#account-settings-change-password
 input#account-settings-save
 {
     position: relative;
-    width: 15%;
     margin-top: 5%;
-    margin-left: -1%;
-    margin-bottom: 5%;
     background-color: rgba(20, 107, 20, 0.95);
 }
 input#account-settings-save:hover
@@ -130,7 +131,7 @@ h1.floating-menu-title
     padding-top: 2%;
 }
 
-p#signuppage,p#loginpage
+p#signuppage,p#loginpage,p#voltar
 {
     text-align: center;
     padding-bottom: 1%;

@@ -26,9 +26,8 @@ var tempoDePartida;
 //----------------------------------------------- Gravar dados da partida ------------------------------------------------------
 
 function RegistrarPartida(resultado){
-	
 	let dados = JSON.stringify({
-		IdUsuario: 1, //exemplo teste ----------------------------------------------------------------------------------------------------------------
+		IdUsuario: document.getElementById("idUser").innerHTML,
 		numBombas: qtdBombas,
 		tabuleiro: (qtdColunas + "x" + qtdLinhas),
 		modo: modoDeJogo,
@@ -43,15 +42,17 @@ function RegistrarPartida(resultado){
 	}	
 	
 	request.onreadystatechange = mostrarResultadoRequisicao;
-	request.open("POST", "./Controles/salvarPartida.php", true);
-	request.setRequestHeader("Content-type", "application/json");//--------------------------------------------------------------------------------
+	request.open("POST", "./util/salvarPartida.php", true);
+	request.setRequestHeader("Content-type", "application/json");
 	request.send(dados);	
 	
 	function mostrarResultadoRequisicao() {
 		try {
 			if (request.readyState === XMLHttpRequest.DONE) {
 				if (request.status === 200) {
-					alert(request.responseText);
+					let retorno = request.responseText;
+					if(retorno != "Partida salva")
+						alert("Ocorreu um erro no servidor e sua partida não pode ser salva!\nERRO: " + retorno);
 				}
 				else {
 					alert("Ocorreu um erro("+request.status+")e sua partida não pode ser salva!");
@@ -584,7 +585,7 @@ function ocultarContadoresDoTempo(){
 }
 
 function iniciarContagemTempoPartida(){
-	dataInicio = new Date().toISOString().substring(0, 10);
+	dataInicio = new Date().toISOString().slice(0, 19).replace('T', ' ');
     tempoDePartida = 0;
     tempoDePartidaId = setInterval(function(){
         tempoDePartida++;

@@ -9,9 +9,7 @@ if(isset($_SESSION["usuarioLogado"]) && $_SESSION["usuarioLogado"] === true)
 if (!$logado){
     header("Location: login.php");
     die;
-
 }
-
 
 $idUsuario = $_SESSION['usuarioId'];
 $resultadoAlteracao =  null;
@@ -24,7 +22,6 @@ if (!empty($_POST)){
 
     require_once("./util/atualizarConta.php");
     $resultadoAlteracao = processarSenha($idUsuario, $_POST["senhaatual"], $_POST["novasenha"]);
-
 }
 
 ?>
@@ -38,8 +35,7 @@ if (!empty($_POST)){
         <link rel="stylesheet" type="text/css" href="./StyleSheet/cssUser.css">
     </head>
 
-    <body id="login">
-        
+    <body id="login">        
         <section class="floating-menu" id="floating-menu-login">
             <form name="changePassword" method = "post" action="./changepassword.php">
                 <h1 class="floating-menu-title"> SENHA </h1>
@@ -63,17 +59,14 @@ if (!empty($_POST)){
                     <input type="submit" class="submit-input" value="Mudar"> 
                 </div>
 				 <br /><br />
-				<a href="./account.php">
-                    <p id="voltar">
-                        Voltar
-                    </p>
-                </a>
+				<p id="voltar">
+					<a href="./account.php">
+					Voltar
+					</a>
+				</p>
                 <?php } ?>
-                <br />
-				
+                <br />				
             </form>
         </section>
-
     </body>
-
 </html>

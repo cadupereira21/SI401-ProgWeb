@@ -10,23 +10,22 @@ if(isset($_SESSION["usuarioLogado"]) && $_SESSION["usuarioLogado"] === true)
 if (!$logado){
     header("Location: login.php");
     die;
-
 }
 
 $nomeUsuario = $_SESSION['usuarioNome'];
 $idUsuario = $_SESSION['usuarioId'];
 $resultadoAlteracao =  null;
 if (!empty($_POST)){
-if (!isset($_POST["nome"]))
-    return;
+	if (!isset($_POST["nome"]))
+		return;
 
-if (!isset($_POST["telefone"]))
-    return;
+	if (!isset($_POST["telefone"]))
+		return;
 
-if (!isset($_POST["email"]))
-    return;
-require_once("./util/atualizarConta.php");
-$resultadoAlteracao = processarAlteracao($idUsuario, $_POST["nome"], $_POST["telefone"], $_POST["email"]);
+	if (!isset($_POST["email"]))
+		return;
+	require_once("./util/atualizarConta.php");
+	$resultadoAlteracao = processarAlteracao($idUsuario, $_POST["nome"], $_POST["telefone"], $_POST["email"]);
 }
 
 ?>
@@ -92,11 +91,11 @@ $resultadoAlteracao = processarAlteracao($idUsuario, $_POST["nome"], $_POST["tel
                 </div>
                 <?php if ($resultadoAlteracao == null){?>
                 <div class="account-settings-footstep">
-					<a href="./game.php">
-						<p id="voltar">
-							Voltar
-						</p>
-					</a>
+					<p id="voltar">
+						<a href="./game.php">
+						Voltar
+						</a>
+					</p>
                 </div>
                 <?php } ?>
              </div>

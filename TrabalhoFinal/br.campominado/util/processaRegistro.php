@@ -1,9 +1,6 @@
 <?php
 
-
-
 function processarRegistro($nomeCompleto, $nomeUsuario, $email, $senha, $cpf, $dataNasc, $telefone){
-
 
     require_once("./util/conexao.php");
 
@@ -28,11 +25,7 @@ function processarRegistro($nomeCompleto, $nomeUsuario, $email, $senha, $cpf, $d
 
     $usuarioId = mysqli_insert_id($conexao);
 
-
-   // $usuario = new User($usuarioId, $nomeCompleto, $nomeUsuario, $cpf, $dataNasc, $telefone, $email, $senha);
-
     return "Cadastro realizado com sucesso. <a href='login.php'>Clique para realizar login.</a>";
 
-
-    }
+}
 ?>

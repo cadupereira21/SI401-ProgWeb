@@ -4,21 +4,18 @@ session_start();
 
 $logado = false;
 
-
 if(isset($_SESSION["usuarioLogado"]) && $_SESSION["usuarioLogado"] === true)
-            $logado = true;
+    $logado = true;
 
 if (!$logado){
-        header("Location: login.php");
-        die;
-
+    header("Location: login.php");
+    die;
 }
 
 $nomeUsuario = $_SESSION['usuarioNome'];
 
-
-include ("./util/obterRanking.php");
-include ("./util/conexao.php");
+require_once ("./util/obterRanking.php");
+require_once ("./util/conexao.php");
 ?>
 
 <!DOCTYPE html>
@@ -36,8 +33,8 @@ include ("./util/conexao.php");
 	<body>	
 		<h1>Campo minado Ranking</h1>
 		<header class="cabecalho" >		
-
-		       <?php include "./util/menuUsuario.php"?>     
+			<h2 class="oculto">Menu de manipulação geral da página</h2>
+		    <?php include "./util/menuUsuario.php"?>     
 			
 			<div class="LeaderbordCabecalho">
 				<img src='./Assets/rank.png' alt='' class='rankIcon'> Leaderboard
@@ -73,8 +70,7 @@ include ("./util/conexao.php");
 						<?php echo(getRanking('Classico')); ?>
 					</tbody>
 				</table>				
-			</div>
-				
+			</div>				
 		</section>
 	</body>	
 </html>

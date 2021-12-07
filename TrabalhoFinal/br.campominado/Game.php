@@ -4,19 +4,15 @@ session_start();
 
 $logado = false;
 
-
 if(isset($_SESSION["usuarioLogado"]) && $_SESSION["usuarioLogado"] === true)
-      $logado = true;
+    $logado = true;
 
 if (!$logado){
     header("Location: login.php");
     die;
-
 }
 
 $nomeUsuario = $_SESSION['usuarioNome'];
-
-
 ?>
 
 

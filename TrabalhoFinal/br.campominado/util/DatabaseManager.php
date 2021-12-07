@@ -158,7 +158,6 @@ class DatabaseManager
 		$this->CloseConnection($conn);
     }
 
-
 	public function DropDatabase(){
 		
 		try{

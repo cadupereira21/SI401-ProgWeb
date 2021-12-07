@@ -17,8 +17,6 @@ if (!empty($_POST)){
 
     require_once("./util/processaLogin.php");
     $resultadoLogin = processarLogin($_POST["usuario"], $_POST["senha"]);
-
-
 }
 
 ?>
@@ -40,15 +38,15 @@ if (!empty($_POST)){
                 <hr class="floating-menu-bar"/>
 
                 <?php
-                     if ($logado){
-                         echo"Você já está logado. <a href='game.php'>Clique para ir ao jogo.</a>";
-                         echo"<br /><br /><br />";
-                     } else{
-                        if($resultadoLogin != null){
-                                echo($resultadoLogin);
-                                echo"<br /><br /><br />";
-                        }  else {
-                        ?>
+					if ($logado){
+						echo"Você já está logado. <a href='game.php'>Clique para ir ao jogo.</a>";
+						echo"<br /><br /><br />";
+					} else{
+						if($resultadoLogin != null){
+							echo($resultadoLogin);
+							echo"<br /><br /><br />";
+						} else {
+                ?>
                         <div class="floating-menu-content">
                     <label for="usuario">USUÁRIO</label>
 				<input type="text" class="text-input" name="usuario" id="usuario" required="required" autocomplete="off" maxlength="16">
@@ -71,9 +69,8 @@ if (!empty($_POST)){
                         Cadastre-se
                     </p>
                 </a>
-
-                        <?php
-                        }  }
+                <?php
+                    }  }
                 ?>
 
             </form>

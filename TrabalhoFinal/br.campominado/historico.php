@@ -3,14 +3,12 @@
 
 $logado = false;
 
-
 if(isset($_SESSION["usuarioLogado"]) && $_SESSION["usuarioLogado"] === true)
-            $logado = true;
+    $logado = true;
 
 if (!$logado){
-        header("Location: login.php");
-        die;
-
+    header("Location: login.php");
+    die;
 }
 
 $nomeUsuario = $_SESSION['usuarioNome'];
@@ -31,8 +29,8 @@ require_once("./util/obterHistorico.php");
 	<body>	
 		<h1>Campo minado Histórico</h1>
 		<header class="cabecalho" >		
-			
-		       <?php include "./util/menuUsuario.php"?>
+			<h2 class="oculto">Menu de manipulação geral da página</h2>
+		    <?php include "./util/menuUsuario.php"?>
 
 			<div class="historicoTexto">
 				<img src='./Assets/hist.png' alt='' class='histIcon'> Histórico de partidas
@@ -47,7 +45,6 @@ require_once("./util/obterHistorico.php");
 			
 			<div id="tabelaHist">
 				<table id ="tabela">
-
 					<tr class='linhaInfos'>
 						<td><img src='./Assets/datahora.png' alt='' class='icone'> Data e hora</td>
 						<td><img src='./Assets/modo.png' alt='' class='icone'> Modo de jogo</td>
@@ -57,13 +54,8 @@ require_once("./util/obterHistorico.php");
 						<td><img src='./Assets/resultado.png' alt='' class='icone'> Resultado</td>
 					</tr>
 					<?php echo(getHistorico()); ?>
-
-
 				</table>
-
-			</div>	
-
-				
+			</div>				
 		</section>
 	</body>	
 </html>

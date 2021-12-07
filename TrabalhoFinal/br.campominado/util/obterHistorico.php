@@ -9,7 +9,6 @@ function getHistorico(){
     if (!$logado)
         die;
 
-
     $idUsuario = $_SESSION['usuarioId'];
 
     require_once("./util/conexao.php");
